@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('order_id')->constrained()->onDelete('cascade');
+            $table->enum('method', ['cash', 'qris', 'debit', 'credit', 'ewallet']);
+            $table->decimal('amount_paid', 10, 2);
+            $table->decimal('change', 10, 2)->default(0);
+            $table->timestamp('paid_at')->useCurrent();
             $table->timestamps();
         });
     }
