@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_variant_id')->constrained()->onDelete('cascade');
             $table->foreignId('ingredient_id')->constrained()->onDelete('cascade');
-            $table->decimal('quantity', 10, 2);
+            $table->decimal('quantity_used', 10, 2);
             $table->timestamps();
         });
     }
