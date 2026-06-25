@@ -9,7 +9,7 @@ class Order extends Model
     protected $fillable = [
         'order_number',
         'order_type',
-        'dining_table_id',
+        'table_id',
         'user_id',
         'status',
         'subtotal',
@@ -17,7 +17,7 @@ class Order extends Model
         'total'
     ];
 
-    public function table()
+    public function diningTable()
     {
         return $this->belongsTo(DiningTable::class, 'table_id');
     }
